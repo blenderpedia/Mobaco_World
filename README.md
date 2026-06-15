@@ -1,6 +1,6 @@
 # Mobaco Landing Page
 
-A static English landing page for the Mobaco community and alpha test.
+A static English landing page for Mobaco World, focused on Patreon-powered alpha testing.
 
 ## Files
 
@@ -8,6 +8,9 @@ A static English landing page for the Mobaco community and alpha test.
 - `styles.css` - complete responsive visual design
 - `script.js` - small header/year enhancement
 - `assets/mobaco-hero.png` - generated hero artwork
+- `assets/mobaco-world-header.jpg` - optimized hero/header artwork used on the live page
+- `assets/mobaco-world-header.png` - original source version of the header artwork
+- `assets/screenshots/` - compressed gameplay screenshots used throughout the page
 
 ## Deploy on Cloudflare Pages
 
@@ -24,6 +27,7 @@ A static English landing page for the Mobaco community and alpha test.
 
 ## Things to customize
 
-- Replace `hello@mobaco.game` in `index.html` with your real email, form, Discord, Steam, or itch.io link.
-- Replace the FAQ answers once the alpha rules are final.
-- Swap `assets/mobaco-hero.png` for real screenshots or official key art when available.
+- Patreon alpha links point to `https://www.patreon.com/cw/cgmasterclass`.
+- Replace `hello@mobacoworld.com` with your real contact address when available.
+- Replace the FAQ answers once the alpha rules and sharing policy are final.
+- Replace or add files in `assets/screenshots/` when newer gameplay screenshots are available.

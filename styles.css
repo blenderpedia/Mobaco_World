@@ -184,22 +184,22 @@ img {
 
 .hero-image {
   object-fit: cover;
-  object-position: center;
+  object-position: center top;
   z-index: -3;
 }
 
 .hero-scrim {
   z-index: -2;
   background:
-    linear-gradient(90deg, rgba(10, 13, 15, 0.95) 0%, rgba(10, 13, 15, 0.72) 34%, rgba(10, 13, 15, 0.16) 72%),
-    linear-gradient(180deg, rgba(10, 13, 15, 0.16), rgba(10, 13, 15, 0.82));
+    linear-gradient(90deg, rgba(10, 13, 15, 0.94) 0%, rgba(10, 13, 15, 0.68) 32%, rgba(10, 13, 15, 0.06) 72%),
+    linear-gradient(180deg, rgba(10, 13, 15, 0.08), rgba(10, 13, 15, 0.78));
 }
 
 .hero-content {
   width: min(48rem, calc(100% - 2rem));
-  align-self: center;
+  align-self: end;
   margin-left: clamp(1rem, 8vw, 6rem);
-  padding-top: 5rem;
+  padding: 8rem 0 clamp(3.5rem, 8vw, 6rem);
 }
 
 .eyebrow {
@@ -291,6 +291,7 @@ p {
 }
 
 .intro-band,
+.media-strip,
 .section,
 .final-cta {
   width: min(1180px, calc(100% - 2rem));
@@ -301,10 +302,11 @@ p {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
-  transform: translateY(-3rem);
+  margin-top: clamp(1rem, 3vw, 2rem);
 }
 
 .intro-card,
+.media-card,
 .feature,
 .alpha-steps article,
 .community-panel,
@@ -316,7 +318,15 @@ p {
 }
 
 .intro-card {
-  padding: 1.25rem;
+  min-height: 13rem;
+  padding: clamp(1rem, 2vw, 1.35rem);
+}
+
+.intro-card h2 {
+  max-width: 8.5ch;
+  margin-bottom: 0.85rem;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.02;
 }
 
 .intro-card p,
@@ -336,6 +346,108 @@ p {
   background: rgba(54, 198, 180, 0.14);
   color: var(--teal);
   font-weight: 900;
+}
+
+.media-strip {
+  display: grid;
+  grid-template-columns: 1.25fr 0.875fr 0.875fr;
+  gap: 1rem;
+  padding: 1rem 0 0;
+}
+
+.media-card {
+  position: relative;
+  display: flex;
+  min-height: 13rem;
+  align-items: flex-end;
+  overflow: hidden;
+  padding: 1rem;
+  background: rgba(21, 27, 29, 0.86);
+}
+
+.media-card.large {
+  min-height: 18rem;
+}
+
+.media-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, transparent 28%, rgba(10, 13, 15, 0.82));
+}
+
+.media-card img,
+.journey-shot img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-card img {
+  transition: transform 220ms ease;
+}
+
+.media-card:hover img {
+  transform: scale(1.035);
+}
+
+.media-card span {
+  position: relative;
+  z-index: 2;
+  border-radius: var(--radius);
+  background: rgba(10, 13, 15, 0.66);
+  padding: 0.55rem 0.7rem;
+  color: var(--ink);
+  font-size: 0.84rem;
+  font-weight: 900;
+}
+
+.journey {
+  padding-top: clamp(3rem, 6vw, 5rem);
+}
+
+.journey-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.journey-shot {
+  position: relative;
+  min-height: 26rem;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(21, 27, 29, 0.86);
+  box-shadow: var(--shadow);
+}
+
+.journey-shot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 38%, rgba(10, 13, 15, 0.9));
+}
+
+.journey-shot figcaption {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 1;
+  padding: 1rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.journey-shot strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--ink);
+  font-family: "Space Grotesk", Inter, sans-serif;
+  font-size: 1.1rem;
 }
 
 .section {
@@ -522,16 +634,22 @@ p {
 
   .hero-stats,
   .intro-band,
+  .media-strip,
   .split,
   .feature-grid,
   .alpha-steps,
-  .community {
+  .community,
+  .journey-grid {
     grid-template-columns: 1fr;
   }
 
-  .intro-band {
-    transform: none;
-    margin-top: 1rem;
+  .media-card,
+  .media-card.large {
+    min-height: 12rem;
+  }
+
+  .journey-shot {
+    min-height: 24rem;
   }
 
   .section-copy {
